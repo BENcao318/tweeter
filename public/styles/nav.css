@@ -1,0 +1,32 @@
+nav {
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+}
+
+nav span {
+  font-family: 'Bungee', sans-serif;
+  font-size: 1.5em;
+  margin-left: 1.5em;
+  align-self: center;
+}
+
+nav div {
+  margin-right: 1.5em;
+  margin-bottom: 1px;
+  text-align: center;
+  align-self: center;
+}
+
+nav div p {
+  margin:0;
+}
+
+i {
+  color: red;
+  margin: 0;
+}

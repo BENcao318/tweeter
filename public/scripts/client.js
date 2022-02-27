@@ -52,11 +52,14 @@ const loadTweets = function() {
 }
 
 const tweetValidation = function(tweet) {
+  $('#alert').text('');
   if(tweet === '' || tweet === null) {
-    alert('The tweet text cannot be empty');
+    $('#alert').append('<i class="fa-solid fa-triangle-exclamation"></i> The tweet text cannot be empty <i class="fa-solid fa-triangle-exclamation"></i>');
+    $('#alert').slideDown();
     return false;
   } else if (tweet.length > 140) {
-    alert('Tweet is over 140 character limit, modify before send');
+    $('#alert').append('<i class="fa-solid fa-triangle-exclamation"></i> Tweet is over 140 character limit, modify before send <i class="fa-solid fa-triangle-exclamation"></i>');
+    $('#alert').slideDown();
     return false;
   }
   return true;

@@ -31,15 +31,71 @@ const data = [
 ]
 
 const renderTweets = function(tweets) {
+  tweets.forEach(tweet => {
+    $('.container').append(createTweetElement(tweet));
+  })
 // loops through tweets
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container
 }
 
 const createTweetElement = function(tweet) {
-let $tweet = /* Your code for creating the tweet element */
-// ...
-return $tweet;
+  const $tweet = $(`
+  <article class="tweet">
+    <header>
+      <div id="avatar">
+        <img src="${tweet.user.avatars}" alt="avatar">          
+        <span>${tweet.user.name}</span>
+      </div>
+      <div id="tweet-handle">
+        ${tweet.user.handle}
+      </div>
+    </header>
+    <div class="tweet-content">
+      ${tweet.content.text}
+    </div>
+    <hr class="solid">
+    <footer>
+      <div class="tweet-time">
+        ${convertMillisec(tweet.created_at)}
+      </div>
+      <div class="btns">
+        <button><i class="fa-solid fa-flag"></i></button>
+        <button><i class="fa-solid fa-retweet"></i></button>
+        <button><i class="fa-solid fa-heart"></i></button>     
+      </div>
+    </footer>
+  </article>
+  `);
+
+  return $tweet;
 }
 
-renderTweets(data);
+const convertMillisec = function(millisec) {
+  const now = Date.now();
+  const dif = (now - millisec) / 1000;
+  if(dif >= 86400) {
+    return `${Math.floor(dif / 86400)} days ago`;
+  } else if (dif <= 60){
+    return `${dif} seconds ago`;
+  } else if (dif < 3600) {
+    return `${Math.floor(dif / 60)} minutes ago`;
+  } else {
+    return `${Math.floor(dif / 3600)} hours ago`;
+  }
+}
+
+$(function() {
+  renderTweets(data);
+
+  $('form').on('submit', function(event) {
+    event.preventDefault();
+    // $.ajax({
+    //   type: 'POST',
+    //   url: '/tweets/',
+    //   data: $(this).serialize()
+    // });
+    $.post('/tweets/', $(this).serialize())
+  })
+})
+

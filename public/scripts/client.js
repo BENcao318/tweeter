@@ -6,7 +6,7 @@
 
 const renderTweets = function(tweets) {
   tweets.forEach(tweet => {
-    $('.container').append(createTweetElement(tweet));
+    $('#tweets').prepend(createTweetElement(tweet));
   })
 // loops through tweets
 // calls createTweetElement for each tweet
@@ -68,7 +68,8 @@ $(function() {
   $('form').on('submit', function(event) {
     event.preventDefault();
     if(tweetValidation($('#tweet-text').val())){
-      $.post('/tweets/', $(this).serialize())
+      $.post('/tweets/', $(this).serialize());
+      loadTweets();
     }
   })
 })

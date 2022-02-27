@@ -5,30 +5,30 @@
  */
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 const renderTweets = function(tweets) {
   tweets.forEach(tweet => {
@@ -57,7 +57,7 @@ const createTweetElement = function(tweet) {
     <hr class="solid">
     <footer>
       <div class="tweet-time">
-        ${convertMillisec(tweet.created_at)}
+        ${timeago.format(tweet.created_at)}
       </div>
       <div class="btns">
         <button><i class="fa-solid fa-flag"></i></button>
@@ -71,31 +71,20 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
-const convertMillisec = function(millisec) {
-  const now = Date.now();
-  const dif = (now - millisec) / 1000;
-  if(dif >= 86400) {
-    return `${Math.floor(dif / 86400)} days ago`;
-  } else if (dif <= 60){
-    return `${dif} seconds ago`;
-  } else if (dif < 3600) {
-    return `${Math.floor(dif / 60)} minutes ago`;
-  } else {
-    return `${Math.floor(dif / 3600)} hours ago`;
-  }
+const loadTweets = function() {
+  $.get('/tweets/', function(data) {
+    renderTweets(data);
+  })
 }
 
 $(function() {
-  renderTweets(data);
+  loadTweets();
 
   $('form').on('submit', function(event) {
     event.preventDefault();
-    // $.ajax({
-    //   type: 'POST',
-    //   url: '/tweets/',
-    //   data: $(this).serialize()
-    // });
     $.post('/tweets/', $(this).serialize())
   })
+
+
 })
 

@@ -26,7 +26,7 @@ const createTweetElement = function(tweet) {
       </div>
     </header>
     <div class="tweet-content">
-      ${tweet.content.text}
+      ${escape(tweet.content.text)}
     </div>
     <hr class="solid">
     <footer>
@@ -60,6 +60,12 @@ const tweetValidation = function(tweet) {
     return false;
   }
   return true;
+}
+
+const escape = function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }
 
 $(function() {

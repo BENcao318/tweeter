@@ -1,0 +1,32 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+textarea {
+  border-width: 0 0 4px 0;
+  width: 100%;
+  resize: none;
+  margin: 0 auto;
+  border-color: #000;
+  border-style: solid;
+  background-color: #f4f1ec;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+form div {
+  font-family: 'Bungee', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+button {
+  color: #fff;
+  background-color: #4056A1;
+}

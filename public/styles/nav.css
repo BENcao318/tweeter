@@ -29,7 +29,27 @@ nav div p {
   margin:0;
 }
 
-i {
+#toggle-form-btn {
+  border: none;
+}
+
+
+#toggle-form-btn i {
   color: red;
   margin: 0;
+  position: relative;
+  transition: transform 1s;
+}
+
+@keyframes form-toggle {
+  0% {top: 0px}
+  50% {top: 6px}
+  100% {top: 0px}
+}
+
+#toggle-form-btn:hover > i{
+  position: relative;
+  animation-name: form-toggle;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }

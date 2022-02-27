@@ -52,7 +52,7 @@ const loadTweets = function() {
 }
 
 const tweetValidation = function(tweet) {
-  $('#alert').text('');
+  $('#alert').text('')
   if(tweet === '' || tweet === null) {
     $('#alert').append('<i class="fa-solid fa-triangle-exclamation"></i> The tweet text cannot be empty <i class="fa-solid fa-triangle-exclamation"></i>');
     $('#alert').slideDown();
@@ -80,6 +80,10 @@ $(function() {
       $.post('/tweets/', $(this).serialize());
       loadTweets();
     }
+  })
+
+  $('#toggle-form-btn').on('click', function() {
+    $('.new-tweet').slideToggle();
   })
 })
 

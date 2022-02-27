@@ -46,11 +46,15 @@ const createTweetElement = function(tweet) {
 }
 
 const loadTweets = function() {
-  $.get('/tweets/', function(data) {
+  $.get('/tweets/')
+  .then(function(data) {
     renderTweets(data);
-  })
+  });
 }
 
+/*
+Validate tweet length. If tweet length 0 or over 140, slidedown the alert.
+*/
 const tweetValidation = function(tweet) {
   $('#alert').text('')
   if(tweet === '' || tweet === null) {
@@ -65,10 +69,19 @@ const tweetValidation = function(tweet) {
   return true;
 }
 
+/*
+Use createTextNode to escape the HTML tags from the input 
+*/
 const escape = function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
+}
+
+const addLastTweet = function() {
+  $.get('/tweets/', function(data) {
+    $('#tweets').prepend(createTweetElement(data[data.length - 1]));
+  })
 }
 
 $(function() {
@@ -77,13 +90,30 @@ $(function() {
   $('form').on('submit', function(event) {
     event.preventDefault();
     if(tweetValidation($('#tweet-text').val())){
-      $.post('/tweets/', $(this).serialize());
-      loadTweets();
+      $.post('/tweets/', $(this).serialize())
+      .then(function() {
+        addLastTweet();
+      });
     }
   })
 
   $('#toggle-form-btn').on('click', function() {
-    $('.new-tweet').slideToggle();
+    $('.new-tweet').slideToggle('fast', function() {
+      $('#tweet-text').focus();
+    });
   })
+
+  $(window).scroll(function() {
+    if($(window).scrollTop() >= 200) {
+      $('#scroll-top-btn').show();
+    } else {
+      $('#scroll-top-btn').hide();
+    }
+  })
+
+  $('#scroll-top-btn').on('click', function() {
+    $(window).scrollTop(0);
+  })
+
 })
 

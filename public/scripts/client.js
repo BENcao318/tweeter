@@ -33,7 +33,7 @@ const createTweetElement = function(tweet) {
       <div class="tweet-time">
         ${timeago.format(tweet.created_at)}
       </div>
-      <div class="btns">
+      <div class="interact-btn">
         <button><i class="fa-solid fa-flag"></i></button>
         <button><i class="fa-solid fa-retweet"></i></button>
         <button><i class="fa-solid fa-heart"></i></button>     
@@ -65,6 +65,8 @@ const tweetValidation = function(tweet) {
     $('#alert').append('<i class="fa-solid fa-triangle-exclamation"></i> Tweet is over 140 character limit, modify before send <i class="fa-solid fa-triangle-exclamation"></i>');
     $('#alert').slideDown();
     return false;
+  } else {
+    $('#alert').hide();
   }
   return true;
 }

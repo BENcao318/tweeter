@@ -1,0 +1,44 @@
+ /*
+Desktop Styles
+*/
+@media only screen and (min-width: 1024px) {
+  header {
+    width: 33%;
+    height: 360px;
+    float: left;
+    margin: 8rem 2rem;
+    display: flex;
+  }
+
+  header h2 {
+    margin: 0 auto;
+  }
+
+  .container {
+    width: 60%;
+    float: right;
+    margin: 84px auto;
+  }
+
+  .new-tweet {
+    width: 100%;
+    margin: 2rem auto;
+  }
+
+  .new-tweet form {
+    margin: 0 2rem;
+  }
+
+  #tweets {
+    margin: 0 2rem;
+  }
+
+  nav {
+    background-color: #4056A1;
+  }
+
+  button {
+    background-color:#4056A1;
+    background-image: none;
+  }
+}

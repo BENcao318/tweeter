@@ -25,4 +25,4 @@ This repository is the starter code for the project: Students will fork and clon
 
 !["screenshot of tablet page"](https://github.com/BENcao318/tweeter/blob/master/docs/Tablet%20View.png)
 !["screenshot of desktop page"](https://github.com/BENcao318/tweeter/blob/master/docs/Desktop%20View.png)
-!["gif image of posting a tweet"](https://github.com/BENcao318/tweeter/blob/master/docs/Posting%20a%20tweet%20.gif)
+!["gif image of posting a tweet"](https://github.com/BENcao318/tweeter/blob/master/docs/PostingANewTweet.gif)

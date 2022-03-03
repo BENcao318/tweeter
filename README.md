@@ -16,3 +16,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+## Introduction
+
+- This web app clones the Twitter's messaging page
+- When users submit a tweet, the content will be pushed to a static database and the newest tweet will be shown on top of the tweet message board.
+- This web app uses responsive design that support both tablet and desktop view. Each view has its own layout. 
+
+!["screenshot of tablet page"](http://i.imgur.com/OUkLi.gif)

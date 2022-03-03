@@ -23,4 +23,6 @@ This repository is the starter code for the project: Students will fork and clon
 - When users submit a tweet, the content will be pushed to a static database and the newest tweet will be shown on top of the tweet message board.
 - This web app uses responsive design that support both tablet and desktop view. Each view has its own layout. 
 
-!["screenshot of tablet page"](http://i.imgur.com/OUkLi.gif)
+!["screenshot of tablet page"](https://github.com/BENcao318/tweeter/blob/master/docs/Tablet%20View.png)
+!["screenshot of desktop page"](https://github.com/BENcao318/tweeter/blob/master/docs/Desktop%20View.png)
+!["gif image of posting a tweet"](https://github.com/BENcao318/tweeter/blob/master/docs/Posting%20a%20tweet%20.gif)

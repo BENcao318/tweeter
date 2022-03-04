@@ -46,9 +46,15 @@ article.tweet:hover #tweet-handle {
 }
 
 div.tweet-content {
-  margin-left: 2em;
+  margin: 0 2em;
   color: #000;
   font-weight: 600;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+div.tweet-content:hover {
+  overflow-y:scroll;
 }
 
 hr.solid {

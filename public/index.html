@@ -39,7 +39,6 @@
           <p><strong>Write</strong> a new tweet</p>
           <i class="fa-solid fa-angles-down"></i>
         </button>
-
       </div>
     </nav>
 
@@ -58,7 +57,7 @@
         <div id="alert"></div>
         <form method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" rows="1"></textarea>
+          <textarea name="text" id="tweet-text" rows="1" wrap="hard"></textarea>
           <div>
             <button id="submit-tweet-btn" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>

@@ -95,9 +95,7 @@ $(function() {
       $.post('/tweets/', $(this).serialize())
       .then(function() {
         addLastTweet();
-        $('.new-tweet').slideUp('fast', function() {
-          $('#tweet-text').val('');
-        });
+        $('#tweet-text').val('');
       });
     }
   })

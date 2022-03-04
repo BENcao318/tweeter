@@ -1,12 +1,11 @@
 nav {
   height: 4em;
   width: 100%;
-  /* background-color: #4056A1; */
   color: #fff;
   display: flex;
   justify-content: space-between;
   z-index: 2;
-  position: fixed;
+  position: absolute;
   top: 0;
   margin: 0;
 }
@@ -41,15 +40,14 @@ nav div p {
   transition: transform 1s;
 }
 
-@keyframes form-toggle {
+@keyframes form-toggle-arrow {
   0% {top: 0px}
   50% {top: 6px}
   100% {top: 0px}
 }
 
 #toggle-form-btn > i{
-  position: relative;
-  animation-name: form-toggle;
+  animation-name: form-toggle-arrow;
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
